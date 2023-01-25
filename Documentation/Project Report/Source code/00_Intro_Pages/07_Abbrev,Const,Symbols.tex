@@ -1,0 +1,64 @@
+%-----------------------------------------------------------------------------
+%	                              ABBREVIATIONS
+%-----------------------------------------------------------------------------
+% NOTE: YOU WILL NEED TO ENABLE LINES 115-125 of report.tex OR
+%       MAKE USE OF THE listsofsymbols PACKAGE
+
+% The listof___ inputs below are used to generate tables for the symbols,
+% constants and nomenclature and take inputs of l, c, r to determine their
+% respective column alignments as do any other tables in  LaTeX.
+
+\clearpage % Start a new page
+
+\setstretch{1.5} % Set the line spacing to 1.5, this makes any following tables easier to read.
+
+\noindent
+
+{\Huge{\bf{Notations and Abbreviations}}}\
+\\[6pt] 
+\flushleft{
+\newline
+{\normalsize{\textbf{NMT: Neural Machine Translation}}} \\
+{\normalsize{\textbf{NMTS: Neural Machine Translation System}}} \\
+{\normalsize{\textbf{CLE: Cross Lingual Embeddings}}} \\
+{\normalsize{\textbf{LSTM: Long Short Term Memory}}} \\ 
+{\normalsize{\textbf{UNMT:- Unsupervised Neural Machine Translation System.}}} \\
+}
+\newpage
+
+%-----------------------------------------------------------------------------
+%	                 PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%-----------------------------------------------------------------------------
+
+% % NOTE: YOU WILL NEED TO ENABLE LINES 139-149 of report.tex
+
+%\clearpage % Start a new page
+
+% SAMPLE OF USE:
+
+%{\Huge{\bf{Physical Constants}}}
+%\\[6pt]
+%\listofconstants{lrcl} % Include a list of Physical Constants (a four-column table)
+%{
+%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+% Constant Name & Symbol & = & Constant Value (with units) \\
+%}
+%\newpage
+%-----------------------------------------------------------------------------
+%	                                 SYMBOLS
+%-----------------------------------------------------------------------------
+
+%\clearpage % Start a new page
+
+% SAMPLE OF USE:
+
+%{\Huge{\bf{Symbols}}}
+%\\[6pt]
+%\listofnomenclature{lll} % Include a list of Symbols (a two-column table)
+%{
+%$D^{el}$ & elasticity tensor \\
+%$\sigma$ & stress tensor \\
+%$ \varepsilon $ & strain tensor \\
+% Symbol & Name & Unit \\
+%}
+%\newpage
