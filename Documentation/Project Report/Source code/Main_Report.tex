@@ -1,0 +1,235 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IISER Thiruvananthapuram Thesis Report Format
+% LaTeX Template
+%
+% Author:
+% Nikhil Alex Verghese, BS-MS 17, IISER Thiruvananthapuram
+% PLEASE FORWARD ANY AND ALL SUGGESTIONS AND COMPLAINTS TO: nikhil.alexv17@alumni.iisertvm.ac.in
+%
+% READ ALL INSTRUCTIONS (presented as comments) IN EACH TEX FILE CAREFULLY.
+%
+% License:
+% CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Comments like this begin with a % character.
+
+%-----------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-----------------------------------------------------------------------------------
+
+% Set the font size (in pt) and paper size (letterpaper, a4paper, etc)
+\documentclass[12pt,a4wide]{report}
+\oddsidemargin 0.5cm \evensidemargin 0.5cm
+\marginparwidth 40pt \marginparsep 10pt
+\topmargin 0pt \headsep 40pt
+\textheight 635pt \textwidth 450pt
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{array}
+\usepackage{amsthm,amssymb,mathrsfs,setspace,booktabs}
+\usepackage{mathtools,amsmath,nccmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% UNCOMMENT REQUIRED PACKAGES. 
+% CAREFULLY REMOVE UNNECESSARY PACKAGES TO DECREASE COMPILE TIME.
+% READ ALL ASSOCIATED PACKAGE HELP FILES BEFORE USE.
+
+\usepackage{pstricks} % PSTricks offers an extensive collection of quick and easy macros for generating PostScript including macros for colour, graphics, pie charts, rotation, trees and overlays. (https://ctan.org/pkg/pstricks-base?lang=en)
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{tikz} % Used in Images/Figures/3D_Cone.tex, disable if not needed
+% tikz package for drawing graphs and diagrams [XY-pic is now outdated]
+% (https://ctan.org/pkg/tikz?lang=en)
+
+
+%\usepackage{tikz-cd} % Commutative Diagrams with Tikz, primarily for linear algebra.
+% (https://ctan.org/pkg/tikz-cd?lang=en)
+
+%\usepackage{pgfplots} % pgfplots is dependent on tikz package and is used to portray detailed 2D and 3D function plots from scratch as well as plot available data with a high degree of customization. (https://www.overleaf.com/learn/latex/Pgfplots_package)
+% (https://ctan.org/pkg/pgfplots?lang=en)
+
+%\usepackage{footmisc} % footmisc package for typesetting footnotes better
+% (https://ctan.org/pkg/footmisc?lang=en)
+
+\usepackage{hyperref} % hyperref package for creating reliable hyperlinks and referral links.
+% (https://ctan.org/pkg/hypperref?lang=en)
+
+\usepackage{appendix} % appendix package for appendix-related formatting.
+% (https://ctan.org/pkg/appendix?lang=en)
+
+%\usepackage{listofsymbols} % listofsymbols package for establishing a legend for any symbols used.
+% (https://ctan.org/pkg/listofsymbols?lang=en)
+
+\usepackage{caption} % caption package for better control over captions for figures, tables, etc.
+% (https://ctan.org/pkg/caption?lang=en)
+
+%\usepackage{booktabs} % The booktabs package allows better control over tables including ruling, width, etc. (https://ctan.org/pkg/booktabs?lang=en) 
+
+\usepackage[style=verbose]{biblatex} % biblatex package for bibliography-related. 
+% (https://ctan.org/pkg/biblatex?lang=en)
+
+\usepackage{fancyhdr} % fancyhdr package gives better control over headers and footers.
+% (https://www.overleaf.com/learn/latex/Headers_and_footers)
+%\pagestyle{fancy} % Enable for quick header and footer throughout your document.
+
+\usepackage{multicol} % multicol package allows the use of columns in your documents.
+% (https://ctan.org/pkg/multicol?lang=en)
+
+\usepackage{geometry} % geometry package for absolute control over the dimensions of the usable space on a page.
+% (https://ctan.org/pkg/geometry?lang=en)
+
+\usepackage{xcolor} % xcolor package for better control over colours.
+% (https://ctan.org/pkg/xcolor?lang=en)
+\usepackage{fancyhdr}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage{graphicx} % Provides additional control over the \includegraphics command
+% (https://ctan.org/pkg/graphicx)
+
+\usepackage[nottoc]{tocbibind} % Adds LoF and LoT to ToC
+
+
+\usepackage{pgf}
+\usepackage{pgfpages}
+
+
+%----------------------------------------------------------------------------------------%
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\setlength{\parskip}{1em plus 0.25em minus 0.25em}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\renewcommand{\baselinestretch}{1.5}
+
+% The following command redefines the /today command to only provide the month and year.
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May%
+\or June\or July\or August\or September\or October\or November\or December\fi\:%
+\number \year} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               Abbreviations, Constants and Symbols                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Uncomment lines for enabling the use of abbreviations in 07_Abbrev,Const,Symbols.tex
+%\usepackage{longtable}
+%\newcommand\listsymbolname{Abbreviations}
+%\newcommand\listofsymbols[2]{
+%\btypeout{\listsymbolname}
+%\addtotoc{\listsymbolname}
+%    \chapter*{\listsymbolname
+%      \@mkboth{
+%          \MakeUppercase\listsymbolname}{\MakeUppercase\listsymbolname}}
+%\begin{longtable}[c]{#1}#2\end{longtable}\par
+%    \cleardoublepage
+%}
+
+% Uncomment lines for enabling the use of constants in 07_Abbrev,Const,Symbols.tex
+%\newcommand\listconstants{Physical Constants}
+%\newcommand\listofconstants[2]{
+%\btypeout{\listconstants}
+%\addtotoc{\listconstants}
+%    \chapter*{\listconstants
+%      \@mkboth{
+%          \MakeUppercase\listconstants}{\MakeUppercase\listconstants}}
+%\begin{longtable}[c]{#1}#2\end{longtable}\par
+%    \cleardoublepage
+%}
+
+% Uncomment lines for enabling the use of symbols in 07_Abbrev,Const,Symbols.tex
+%\newcommand\listnomenclature{Symbols}
+%\newcommand\listofnomenclature[2]{
+%\btypeout{\listnomenclature}
+%\addtotoc{\listnomenclature}
+%    \chapter*{\listnomenclature
+%      \@mkboth{
+%          \MakeUppercase\listnomenclature}{\MakeUppercase\listnomenclature}}
+%\begin{longtable}[c]{#1}#2\end{longtable}\par
+%    \cleardoublepage
+%}
+
+% Uncomment for some standard notations in math as required
+% \displaystyle or \ds lets you switch back the display style to default, during,
+% say, a cascading fraction 
+
+%\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+%\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+%\DeclarePairedDelimiter\norm{\left\lVert}{\right\rVert}
+%\newcommand{\reals}{\mathbb R}
+%\newcommand{\complex}{\mathbb C}
+%\newcommand{\rational}{\mathbb Q}
+%\newcommand{\int}{\mathbb Z}
+%\newcommand{\nat}{\mathbb N}
+%\newcommand{\jacobian}{\mathcal J}
+%\newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
+%\newcommand{\ds}{\displaystyle}
+%\newcommand{\Ll}{\mathbb L}
+%\newcommand{\la}{\lambda}
+%\newcommand{\cof}{\textup{cof }}
+%\newcommand{\dsum}{\displaystyle\sum}
+%\newcommand{\1}{\mathbf 1}
+
+\addbibresource{ref.bib}
+\pagenumbering{arabic}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CUSTOM INPUT FIELDS ARE MARKED WITH [] IN THE INTRO SECTIONS.
+% REWRITE INPUTS ACCORDING TO CAPITALIZATION WITHIN BRACKETS (First Word Capital/ALL UPPERCASE).
+% GO THROUGH EACH INTRO PAGE AND UPDATE ALL OF YOUR PERSONAL INFORMATION ACCORDINGLY.
+% READ ALL UNCOMMENTED LINES CAREFULLY.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{00_Intro_Pages/01_TitlePage}
+
+%\input{00_Intro_Pages/02_Declaration}
+
+% Switch from 03a_Certificate to 03b_Certificate for a fancier format.
+\input{00_Intro_Pages/03a_Certificate}
+% \input{00_Intro_Pages/03b_Certificate}
+
+\input{00_Intro_Pages/04_Acknowledgements}
+\input{00_Intro_Pages/05_Abstract}
+\setcounter{page}{4}
+\input{00_Intro_Pages/06_ToC,LoF,LoT}
+\input{00_Intro_Pages/07_Abbrev,Const,Symbols}
+
+
+%\setcounter{page}{3}
+
+% ========================== Main chapters start here ========================== %
+
+\input{Chapters/01_Introduction}
+\input{Chapters/02_Literature_Survey.tex}
+\input{Chapters/04_System_Architecture.tex}
+\input{Chapters/05_Other_Specifications.tex}
+\input{Chapters/06_Summary.tex}
+
+\input{References/References.tex}
+
+\end{document}
