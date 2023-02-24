@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <link rel="stylesheet" herf="{{ url_for('static', filename='css/template.css')}}"> -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <style>
+      :root{
+        --A50: #E0F7FA;
+        --A100: #84ffff;
+        --A200: #18ffff;
+        --A400: #00e5ff;
+        --A700:#00b8d4;
+        --A800: #00838f;
+        --A900: #00b8d4;
+      }
+      body{
+        background-color: var(--A50);
+      }
+      .translator_heading{
+        text-align: center;
+        width: 100vw;
+        color: var(--A700);
+      }
+      .form_main{
+        /* background-color:  */
+    }
+      .label{
+        font-size: larger;
+        color: var(--A800);
+      }
+      #input_text{
+        border-color: var(--A700);
+        border-radius: 2px;
+        border-width: 1px;
+        padding: 10px;
+        margin: 1vh 1vw;
+        width: 20vw;
+      }
+      #submit_button{
+        background-color: var(--A900);
+        color: var(--A200);
+        border: #E0F7FA 10px ;
+        border-radius: 2px;
+        width: 10vw;
+        height: 2vh;
+      }
+      .outputs{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: var(--A800);
+      }
+      .outputs h2{
+        margin: 2vh;
+        padding: 2vw;
+        text-align: left;
+      }
+      .note{
+        font-size: smaller;
+        text-align: center;
+        width: 100vw;
+        /* padding:0 10vw; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- {{url_for('predict')}} -->
+    <h1 class="translator_heading">Translator</h1>
+    <form action="{{url_for('predict')}}" method="post" class="form_main">
+      <center>
+        <label class="label">English Input:</label><br>
+        <input type="text" placeholder="Please enter sentence" name="eng" id="input_text">
+        <br>
+        <input type="submit" id="submit_button">
+      </center>
+  </form>
+  <center>
+    <div class="outputs">
+      <h2><b>English:</b><br> {{input_text}}</h2>
+      <h2><b>Hindi:</b><br>   {{prediction_text}}</h2>
+    </div>
+  </center>
+  <div class="note">Max input limit: 20 words(no special characters to be provided)</div>
+  </body>
+</html>
